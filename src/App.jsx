@@ -6,15 +6,17 @@ import Die from "./Die"
 export default function App() {
 
   const [randomDiceNumbers, setRandomDiceNumber] = useState(allNewDice)
-  const dies = randomDiceNumbers.map((number, index) => (
-  <Die key={index} value={number} />
+  const dies = randomDiceNumbers.map((object, index) => (
+    <Die key={index} value={object.value} />
   ));
 
   function allNewDice() {
     const numberArray = []
     for(let i=0 ; i<10 ; i++){
-        let randomNumber = Math.floor(Math.random() * 6) + 1;
-        numberArray.push(randomNumber) 
+        numberArray.push({ 
+          value: Math.ceil(Math.random() * 6), 
+          isHeld: false 
+        }) 
     }
     return numberArray
   }

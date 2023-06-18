@@ -7,7 +7,12 @@ export default function App() {
 
   const [randomDiceNumbers, setRandomDiceNumber] = useState(allNewDice)
   const dies = randomDiceNumbers.map((object, index) => (
-    <Die key={index} value={object.value} />
+    <Die 
+      key={index} 
+      value={object.value}
+      id={index}
+      isHeld={object.isHeld}
+    />
   ));
 
   function allNewDice() {
@@ -23,10 +28,7 @@ export default function App() {
 
   function rollDice(){
     setRandomDiceNumber(allNewDice())
-}
-
-
-
+  }
 
   return (
       <main>

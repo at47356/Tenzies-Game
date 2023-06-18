@@ -1,17 +1,28 @@
 import { useState } from "react";
 import Die from "./Die"
+import {nanoid} from "nanoid"
 
 
 
 export default function App() {
 
   const [randomDiceNumbers, setRandomDiceNumber] = useState(allNewDice)
+  
+  function hold(id) {
+    setRandomDiceNumber(
+      oldDice => oldDice.map(die => (
+          die.id === id ? {...die, isHeld: !die.isHeld} : die
+      ))
+  )
+  }
+
+
   const dies = randomDiceNumbers.map((object, index) => (
     <Die 
       key={index} 
       value={object.value}
-      id={index}
       isHeld={object.isHeld}
+      hold={()=> hold(object.id)}
     />
   ));
 
@@ -20,7 +31,8 @@ export default function App() {
     for(let i=0 ; i<10 ; i++){
         numberArray.push({ 
           value: Math.ceil(Math.random() * 6), 
-          isHeld: false 
+          isHeld: false,
+          id: nanoid()
         }) 
     }
     return numberArray

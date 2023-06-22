@@ -38,9 +38,15 @@ export default function App() {
     return numberArray
   }
 
-  function rollDice(){
-    setRandomDiceNumber(allNewDice())
-  }
+  function rollDice() {
+    setRandomDiceNumber(oldDice => oldDice.map(die => (
+        die.isHeld ? die : {
+            value: Math.ceil(Math.random() * 6),
+            isHeld: false,
+            id: nanoid()
+        }
+    )));
+}
 
   return (
       <main>

@@ -4,6 +4,22 @@
   box-sizing: border-box;
 }
 
+.confetti {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 97vw;
+  height: 97vh;
+  background: none;
+}
+
 main {
   max-width: 380px;
   min-width: 380px;
@@ -12,12 +28,12 @@ main {
   background-color: #F5F5F5;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  margin: 0;
-  position: absolute;
-  top: 50%;
+  /* margin: 0; */
+  /* position: absolute; */
+  /* top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   display: flex;
   flex-direction: column;
   justify-content: space-around;

@@ -11,6 +11,10 @@
   z-index: -1;
 }
 
+.timer,.ms,.sec,.min {
+  background-color: transparent;
+}
+
 body {
   display: flex;
   justify-content: center;

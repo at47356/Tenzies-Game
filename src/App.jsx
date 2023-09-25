@@ -23,14 +23,10 @@ export default function App() {
     const allEqual = randomDiceNumbers.every(die => die.value == randomDiceNumbers[0].value)
     if(allEqual && allHeld){
       setTenzies(true)
-      console.log("You Won!!")
-      // clearInterval(timerId);
-      // setTimerId(null);
+      tenzies && (clearInterval(timerId), console.log(timer))
     }
-    tenzies && clearInterval(timerId);
     
-  },[randomDiceNumbers, tenzies, timerId])
-
+  },[randomDiceNumbers, tenzies])
 
 
   function startTimer() {
@@ -57,6 +53,7 @@ export default function App() {
 
       // Save the timer ID in state for later use
       setTimerId(newTimerId);
+      
     }
   }
 
